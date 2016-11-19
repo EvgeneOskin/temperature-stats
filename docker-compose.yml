@@ -22,6 +22,6 @@ volumes:
   grafana:
     driver: local
   graphite_storage:
-    drive: local
+    driver: local
   graphite_config:
-    drive: local
+    driver: local
