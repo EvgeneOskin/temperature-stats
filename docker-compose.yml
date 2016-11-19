@@ -7,11 +7,16 @@ services:
       - 80:3000
     volumes:
       - grafana:/var/lib/grafana
-  graphite-statsd:
+    depends_on:
+      - statsd
+  statsd:
     image: hopsoft/graphite-statsd
     volumes:
       - graphite_storage:/opt/graphite/storage
       - graphite_config:/opt/graphite/conf
+    ports:
+      - 8125:8125/udp
+      - 8126:8126
 
 volumes:
   grafana:
