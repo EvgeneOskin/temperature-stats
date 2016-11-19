@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  grafana:
+    image: grafana/grafana:4.0.0-beta1
+    ports:
+      - 80:3000
+    volumes:
+      - grafana:/var/lib/grafana
+  graphite-statsd:
+    image: hopsoft/graphite-statsd
+    volumes:
+      - graphite_storage:/opt/graphite/storage
+      - graphite_config:/opt/graphite/conf
+
+volumes:
+  grafana:
+    driver: local
+  graphite_storage:
+    drive: local
+  graphite_config:
+    drive: local
