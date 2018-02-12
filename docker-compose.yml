@@ -9,6 +9,7 @@ services:
       - grafana:/var/lib/grafana
     depends_on:
       - statsd
+    restart: always
     environment:
       GF_SERVER_ROOT_URL: $GF_SERVER_ROOT_URL
       GF_SECURITY_ADMIN_PASSWORD: $GF_SECURITY_ADMIN_PASSWORD
@@ -17,6 +18,7 @@ services:
     volumes:
       - graphite_storage:/opt/graphite/storage
       - graphite_config:/opt/graphite/conf
+    restart: always
     ports:
       - 8125:8125/udp
 
